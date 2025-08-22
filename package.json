@@ -1,0 +1,76 @@
+{
+  "name": "xero-desktop-app",
+  "version": "1.0.0",
+  "description": "Xero Desktop Application - A native desktop experience for Xero users",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "concurrently \"npm run start\" \"npm run watch\"",
+    "watch": "webpack --watch --mode=development",
+    "build": "webpack --mode=production",
+    "dist": "electron-builder",
+    "dist:mac": "electron-builder --mac",
+    "dist:win": "electron-builder --win",
+    "test": "jest"
+  },
+  "keywords": [
+    "xero",
+    "accounting",
+    "desktop",
+    "electron",
+    "offline"
+  ],
+  "author": "Xero Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.22.0",
+    "@babel/preset-env": "^7.22.0",
+    "@babel/preset-react": "^7.22.0",
+    "babel-loader": "^9.1.0",
+    "concurrently": "^8.0.0",
+    "css-loader": "^6.8.0",
+    "electron": "^25.0.0",
+    "electron-builder": "^24.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "jest": "^29.5.0",
+    "style-loader": "^3.3.0",
+    "webpack": "^5.88.0",
+    "webpack-cli": "^5.1.0"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.0",
+    "electron-store": "^8.1.0",
+    "electron-updater": "^6.1.0",
+    "node-fetch": "^3.3.0",
+    "crypto-js": "^4.1.0",
+    "sqlite3": "^5.1.0",
+    "uuid": "^9.0.0",
+    "date-fns": "^2.30.0",
+    "lucide-react": "^0.263.0"
+  },
+  "build": {
+    "appId": "com.xero.desktop",
+    "productName": "Xero Desktop",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "dist/**/*",
+      "node_modules/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.finance",
+      "icon": "assets/icon.icns"
+    },
+    "win": {
+      "icon": "assets/icon.ico"
+    },
+    "linux": {
+      "icon": "assets/icon.png"
+    }
+  }
+}
